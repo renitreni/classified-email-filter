@@ -12,6 +12,7 @@ class EmailFilterAction
         $tempEmail = $emailBody; // Pass original e-mail to a variable for comparison.
         foreach ($classifiedWords as $word) {
             if ($word != '' && $word != null) { // No empty string and null values accepted.
+                $word = trim($word);
                 $emailBody = preg_replace('/\b'.$word.'\b/', '*****', $emailBody);
                 // Replace classified words with asterisk using regular expression.
             }

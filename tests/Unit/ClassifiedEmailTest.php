@@ -31,6 +31,11 @@ class ClassifiedEmailTest extends TestCase
             ],
             [
                 $paragraph,
+                [' forgotten mansion'],
+                true
+            ],
+            [
+                $paragraph,
                 ['In the quaint town of Willowbrook'],
                 true
             ],
@@ -38,6 +43,11 @@ class ClassifiedEmailTest extends TestCase
                 $paragraph,
                 ['whispering forests'],
                 true,
+            ],
+            [
+                $paragraph,
+                ['Willowbrook, nestled'],
+                true
             ],
             [
                 $paragraph,
