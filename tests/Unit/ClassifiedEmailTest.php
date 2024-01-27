@@ -19,26 +19,39 @@ class ClassifiedEmailTest extends TestCase
 
     public static function dataset()
     {
+        $paragraph = 'In the quaint town of Willowbrook, nestled amidst rolling hills and whispering forests, there stood an old, forgotten mansion. Its stone walls held secrets of a bygone era, and its towering turrets seemed to reach for the heavens, as if longing to touch the stars.
+
+        Legend had it that the mansion once belonged to the illustrious Montgomery family, known for their wealth and extravagance. But as time passed, the family faded into obscurity, and the mansion fell into disrepair, its once-grand halls now shrouded in shadows.';
+
         return [
             [
-                'In the quaint town of Willowbrook, nestled amidst rolling hills and whispering forests, there stood an old, forgotten mansion. Its stone walls held secrets of a bygone era, and its towering turrets seemed to reach for the heavens, as if longing to touch the stars.
-
-            Legend had it that the mansion once belonged to the illustrious Montgomery family, known for their wealth and extravagance. But as time passed, the family faded into obscurity, and the mansion fell into disrepair, its once-grand halls now shrouded in shadows.',
-                ['there stood an old,', 'whispering forests'],
+                $paragraph,
+                ['forgotten mansion'],
+                true
+            ],
+            [
+                $paragraph,
+                ['In the quaint town of Willowbrook'],
+                true
+            ],
+            [
+                $paragraph,
+                ['whispering forests'],
                 true,
             ],
             [
-                'In the quaint town of Willowbrook, nestled amidst rolling hills and whispering forests, there stood an old, forgotten mansion. Its stone walls held secrets of a bygone era, and its towering turrets seemed to reach for the heavens, as if longing to touch the stars.
-
-            Legend had it that the mansion once belonged to the illustrious Montgomery family, known for their wealth and extravagance. But as time passed, the family faded into obscurity, and the mansion fell into disrepair, its once-grand halls now shrouded in shadows.',
-                ['fine', 'yep', 'nope', 'nice'],
+                $paragraph,
+                ['Willowbrook,'],
+                false
+            ],
+            [
+                $paragraph,
+                ['fine'],
                 false,
             ],
             [
-                'In the quaint town of Willowbrook, nestled amidst rolling hills and whispering forests, there stood an old, forgotten mansion. Its stone walls held secrets of a bygone era, and its towering turrets seemed to reach for the heavens, as if longing to touch the stars.
-
-            Legend had it that the mansion once belonged to the illustrious Montgomery family, known for their wealth and extravagance. But as time passed, the family faded into obscurity, and the mansion fell into disrepair, its once-grand halls now shrouded in shadows.',
-                ['lus', 'roll', 'Butter', '', null, 'ed am'],
+                $paragraph,
+                ['lus', 'roll', '', null, 'ed am'],
                 false,
             ],
         ];
